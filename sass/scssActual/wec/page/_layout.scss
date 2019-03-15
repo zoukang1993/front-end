@@ -1,0 +1,36 @@
+.title-lists {
+    border-top: 1px solid map-get($line-color, tiny);
+    cursor: pointer;
+    height: 100%;
+
+    .title-item,
+    .sub-title-item {
+        a {
+            color: map-get($font-color, grayer-color);
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 2rem;
+            width: 184px;
+        }
+
+        &.active {
+            background: map-get($main-color, 'ddd');
+        }
+    }
+
+    .title-item {
+        border-bottom: 1px solid map-get($line-color, tiny);
+
+        &:last-child {
+            border-bottom: $zero;
+        }
+    }
+
+    .sub-title-item {
+        &:hover,
+        &.active {
+            background: map-get($main-color, 'ddd');
+        }
+    }
+}

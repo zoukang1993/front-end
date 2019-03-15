@@ -1,0 +1,13 @@
+.grid {
+    @for $i from 1 through 12 {
+        .col#{$i} {
+            @for $j from 1 through 12 {
+                @if ($i >= $j) {
+                    .cell#{$j} {
+                        width: percentage(1 / $i * $j);
+                    }
+                } 
+            }
+        }
+    }
+}

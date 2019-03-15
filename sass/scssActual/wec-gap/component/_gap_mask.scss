@@ -1,0 +1,123 @@
+$mask-background: rgba(44, 56, 71, .66);
+$pop-shadow-color: rgba(44, 56, 71, .5);
+$mt-form-location-base: 3rem;
+$pc-form-location-base: 6.25rem;
+
+@mixin wec-mask {
+    .gap-mask-outer {
+        border: 0;
+        font: inherit;
+        font-size: 100%;
+        margin: $zero;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        vertical-align: baseline;
+        width: 100%;
+        z-index: 10000;
+
+        .gap-mask {
+            background: $mask-background;
+            height: 100%;
+            left: 0;
+            overflow-y: auto;
+            position: fixed;
+            top: 0;
+            width: 100%;
+
+            .pop {
+                @include vendor-prefix(animation, form-showing 1s ease-in-out);
+                background: $white;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px 0 $pop-shadow-color;
+                height: auto;
+                left: 25%;
+                position: absolute;
+                right: 25%;
+                top: $pc-form-location-base;
+                width: 50%;
+                z-index: 77;
+
+                @keyframes form-showing {
+                    from {
+                        top: 0;
+                    }
+
+                    55% {
+                        top: $pc-form-location-base;
+                    }
+
+                    85% {
+                        top: $pc-form-location-base - .75rem;
+                    }
+
+                    90% {
+                        top: $pc-form-location-base - 1rem;
+                    }
+
+                    95% {
+                        top: $pc-form-location-base - .25rem;
+                    }
+
+                    to {
+                        top: $pc-form-location-base;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 40rem) {
+        .gap-mask-outer {
+            .gap-mask {
+                &>.responsive {
+                    @include vendor-prefix(animation, form-showing-phone 1s ease-in-out);
+                    left: 10%;
+                    margin-bottom: $mt-form-location-base;
+                    right: 10%;
+                    top: $mt-form-location-base;
+                    width: 80%;
+
+                    @keyframes form-showing-phone {
+                        from {
+                            top: 0;
+                        }
+
+                        75% {
+                            top: $mt-form-location-base;
+                        }
+
+                        85% {
+                            top: $mt-form-location-base - .2rem;
+                        }
+
+                        90% {
+                            top: $mt-form-location-base;
+                        }
+
+                        95% {
+                            top: $mt-form-location-base - .1rem;
+                        }
+
+                        to {
+                            top: $mt-form-location-base;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media handheld and (min-width: 40rem) and (max-width: 85rem), screen and (min-width: 40rem) and (max-width: 85rem) {
+        .gap-mask-outer {
+            .gap-mask {
+                &>.responsive {
+                    left: 15%;
+                    right: 15%;
+                    top: $pc-form-location-base;
+                    width: 70%;
+                }
+            }
+        }
+    }
+}

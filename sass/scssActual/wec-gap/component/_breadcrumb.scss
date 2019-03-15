@@ -1,0 +1,25 @@
+$breadcrumb-divider: '/';
+
+@mixin wec-breadcrumb {
+    .breadcrumb {
+        line-height: inherit;
+        padding-left: $gap-distance * 2;
+
+        li {
+            cursor: pointer;
+            display: inline-block;
+            width: auto;
+        }
+
+        .bc-divider {
+            &::after {
+                content: $breadcrumb-divider;
+                padding: $gap-distance * 2;
+            }
+        }
+
+        .bc-lasted {
+            color: $mine-shaft;
+        }
+    }
+}

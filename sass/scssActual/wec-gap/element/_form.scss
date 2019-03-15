@@ -1,0 +1,156 @@
+// sass-lint:disable  force-attribute-nesting
+// sass-lint:disable  no-qualifying-elements
+// sass-lint:disable  single-line-per-selector
+// sass-lint:disable  quotes
+
+$fill-border-color: #c0ccda !default;
+$fill-hover-border-color: #8492a6 !default;
+$fill-disabled: #d3dce6 !default;
+
+form {
+    color: map-get($font-color, primary-color);
+    font-size: map-get($title, normal);
+
+    label {
+        color: inherit;
+        font-size: inherit;
+        line-height: inherit;
+
+        input,
+        textarea {
+            font-size: inherit;
+        }
+    }
+
+    .input-group {
+        position: relative;
+
+        .input-group-field {
+            border-radius: 4px;
+            max-height: 2.4375rem;
+
+            &:focus {
+                border-color: map-get($line-color, light);
+            }
+        }
+
+        .input-group-button {
+            align-self: stretch;
+            display: flex;
+            flex: 0 0 auto;
+            height: 100%;
+            padding: 2px;
+            position: absolute;
+            right: $zero;
+            top: $zero;
+
+            &>.btn {
+                background-color: map-get($bg-color, bg-light);
+                border: $zero;
+                color: map-get($main-color, dark-blue);
+                font-size: 1.2rem;
+                height: 100%;
+            }
+        }
+    }
+
+    .zselect {
+        margin-bottom: 1rem;
+        max-height: 2.4375rem;
+        width: 100%;
+    }
+
+    .required-field {
+        &::after {
+            color: $color-red;
+            content: $star;
+            padding-left: 5px;
+        }
+    }
+
+    .invalid {
+        &:invalid {
+            color: $color-red;
+        }
+    }
+
+    .form-title {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .form-content {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .form-footer {
+        background: transparent;
+        padding: 1.25rem 1.5rem 3.125rem;
+    }
+
+    .warning {
+        color: $color-red;
+    }
+}
+
+%form-fill-base {
+    background-color: map-get($bg-color, bg-light);
+    border: 1px solid $fill-border-color;
+    border-radius: 4px;
+    color: $mine-shaft;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: $gap-distance * 2;
+    width: 100%;
+
+    &:hover {
+        border-color: $fill-hover-border-color;
+    }
+
+    &:focus {
+        background: $white;
+        border-color: $fill-hover-border-color;
+    }
+
+    &:disabled {
+        background: $fill-disabled;
+        border-color: opacify($fill-disabled, .2);
+
+    }
+}
+
+// input
+input[type='text'], input[type='email'], input[type='search'], input[type='url'],
+input[type='range'], input[type='datetime'], input[type='color'], input[type='time'],
+input[type='date'], input[type='number'] {
+    @extend %form-fill-base;
+    box-shadow: inset 0 1px 2px map-get($box-shadow-color, primary-shadow-color);
+    display: block;
+    height: 2.4375rem;
+    line-height: 1.5;
+    padding: $gap-distance;
+    transition: box-shadow .5s, border-color .25s ease-in-out;
+}
+
+textarea {
+    @extend %form-fill-base;
+    overflow: auto;
+    padding: .75rem;
+    resize: none;
+}
+
+select {
+    @extend %form-fill-base;
+    @include vendor-prefix(appearance, none);
+    background-image: url("data: image/svg+xml;utf8, <svg xmlns='//w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0, 0 32, 0 16, 24'></polygon></svg>");
+    background-origin: content-box;
+    background-position: right -1rem center;
+    background-repeat: no-repeat;
+    background-size: 9px 6px;
+    box-shadow: inset 0 1px 2px map-get($box-shadow-color, primary-shadow-color);
+    height: 2.4375rem;
+    line-height: 1.5;
+    padding-left: $gap-distance;
+    padding-right: $gap-distance / 2;
+    transition: box-shadow .5s, border-color .25s ease-in-out;
+}

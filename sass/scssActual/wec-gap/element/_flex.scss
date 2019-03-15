@@ -1,0 +1,80 @@
+// sass-lint:disable  no-vendor-prefixes
+// sass-lint:disable  no-duplicate-properties
+
+@mixin flex-item {
+    @for $i from 1 through 12 {
+
+        @media screen and(max-width: 40rem) {
+            .col-xs-#{$i} {
+                width: percentage($i / 12);
+
+                &.space {
+                    width: $i / 12 * 100% - .2%;
+                }
+            }
+        }
+
+        @media screen and(max-width: 60rem) and(min-width: 40rem) {
+            .col-md-#{$i} {
+                width: percentage($i / 12);
+
+                &.space {
+                    width: $i / 12 * 100% - .4%;
+                }
+            }
+        }
+
+        @media screen and (min-width: 60rem) {
+            .col-lg-#{$i} {
+                width: percentage($i / 12);
+
+                &.space {
+                    &:not(:last-child) {
+                        width: $i / 12 * 100% - .6%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.flex {
+    @include flex-item;
+    display: flex;
+    display: -webkit-flex;
+
+    &.flex-main {
+        align-content: flex-start;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &.flex-center {
+        justify-content: center;
+    }
+
+    &.flex-around {
+        justify-content: space-around;
+    }
+
+    &.flex-start {
+        justify-content: flex-start;
+    }
+
+    &.flex-end {
+        justify-content: flex-end;
+    }
+
+    &.flex-between {
+        justify-content: space-between;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.flex-warp {
+        flex-wrap: warp;
+    }
+}

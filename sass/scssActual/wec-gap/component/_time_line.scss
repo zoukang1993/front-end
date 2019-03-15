@@ -1,0 +1,60 @@
+$timeline-border: #dfe1e3 !default;
+$timeline-padding: 2rem !default;
+$timeline-symbol: '\2714';
+
+@mixin wec-time-line {
+    .timeline {
+        background-color: map-get($bg-color, bg-light);
+        font-size: .75rem;
+        padding: $timeline-padding;
+
+        .tl-item {
+            padding-bottom: $gap-distance * 2;
+            position: relative;
+        }
+
+        .tl-item-time {
+            color: map-get($font-color, lighter-color);
+            display: inline-block;
+            position: absolute;
+
+            &::before {
+                border: 1px solid map-get($main-color, dark-blue);
+                content: $empty;
+                display: block;
+                height: 100%;
+                left: 4.6rem;
+                position: absolute;
+                top: $gap-distance * 4;
+            }
+        }
+
+        .tl-item-icon {
+            background: map-get($main-color, dark-blue);
+            border-left: 2px solid map-get($line-color, tiny);
+            border-radius: 22px;
+            color: $white;
+            height: 22px;
+            left: 4rem;
+            line-height: 22px;
+            position: absolute;
+            text-align: center;
+            top: 6px;
+            width: 22px;
+
+            &::before {
+                content: $timeline-symbol;
+            }
+        }
+
+        .tl-item-content {
+            display: inline-block;
+            margin-left: 6rem;
+            vertical-align: top;
+        }
+
+        .highlight {
+            color: map-get($main-color, dark-blue);
+        }
+    }
+}

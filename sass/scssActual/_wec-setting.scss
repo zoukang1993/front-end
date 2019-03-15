@@ -1,0 +1,140 @@
+// sass-lint:disable no-vendor-prefixes
+// sass-lint:disable no-misspelled-properties
+
+//  Global
+$zero: 0;
+$star: '*';
+$none: none;
+$center: 0 auto;
+$white: #fff;
+$color-red: #f00 !default;
+$black: #000;
+$gray: #ccc;
+$mine-shaft: #333;
+$empty: '';
+$body-font-family: PingFangSC, Helvetica, Tahoma, Arial, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, SimSun, 宋体, Heiti, 黑体;
+$gap-distance: .5rem !default;
+
+//main-color
+$main-color: (
+    'dark-blue': #1779ba,
+    'light-blue': #4594cb,
+    'tiny-blue': #a2c9e3,
+    'ddd': #ddd,
+    'eee': #eee
+) !default;
+
+//base font-color
+$font-color: (
+    'primary-color': #222,
+    'grayer-color': #666,
+    'lighter-color': #999,
+    'gray-color': #4a4a4a,
+    'next-color': #f9fafc,
+    'alternative-f-color': #979797
+) !default;
+
+//base-background
+$bg-color: (
+    'main-bg': #f6f6f6,
+    'primary-bg': #1779ba,
+    'bg-darken': #004e8a,
+    'bg-gray': #e9e9e9,
+    'bg-light': #fcfcfc,
+    'bg-title': #e5e9f2
+) !default;
+
+//line-color
+$line-color: (
+    'dark': #999,
+    'light': #ccc,
+    'tiny': #ddd
+) !default;
+
+//gradient-color
+$gradient-color-blue: (
+    'gradient-blue-one': #115b8b,
+    'gradient-blue-t': #1779ba,
+    'gradient-blue-th': #4594cb,
+    'gradient-blue-fo': #748fd6,
+    'gradient-blue-fi': #a2c0e3,
+    'gradient-blue-si': #d1e4f1
+) !default;
+
+$gradient-color-darken: (
+    'gradient-darken-one': #222,
+    'gradient-darken-t': #666,
+    'gradient-darken-th': #999,
+    'gradient-darken-fo': #ccc,
+    'gradient-darken-fi': #ddd,
+    'gradient-darken-si': #eee
+) !default;
+
+$gradient-color-green: (
+    'gradient-green-one': #08b178,
+    'gradient-green-t': #16c98d,
+    'gradient-green-th': #2fd79e,
+    'gradient-green-fo': #5be2b5,
+    'gradient-green-fi': #72edc4,
+    'gradient-green-si': #a2fdde
+);
+
+$box-shadow-color: (
+    'primary-shadow-color': #f0f1f2
+) !default;
+
+//border
+$border-width: 1px !default;
+$border-radius: 3px !default;
+
+// function
+@function pxtorem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
+//@extend global
+%ellipsis {
+    // -moz-binding: url(‘ellipsis.xml#ellipsis’);
+    // -o-text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+%cursor-zoom-in {
+    -moz-cursor: zoom-in;
+    -webkit-cursor: zoom-in;
+    cursor: zoom-in;
+}
+
+%cursor-zoom-out {
+    -moz-cursor: zoom-out;
+    -webkit-cursor: zoom-out;
+    cursor: zoom-out;
+}
+
+//@mixin
+@mixin opacity($opacity) {
+    filter: alpha(opacity=$opacity); //IE8
+    opacity: $opacity;
+}
+
+//  Vendor-prefix
+@mixin vendor-prefix($name, $value) {
+    @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+        #{$vendor}#{$name}: #{$value};
+    }
+}
+
+//clearfix
+@mixin clearfix {
+    &::before,
+    &::after {
+        content: $empty;
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+}

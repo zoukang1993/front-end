@@ -1,0 +1,64 @@
+$meta-margin-dist: 0 1.5rem .8rem 0;
+
+.list {
+    font-size: .875rem;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+
+    &:last-child {
+        margin-bottom: $zero;
+    }
+
+    &>.title {
+        background: map-get($main-color, 'eee');
+        color: map-get($font-color, lighter-color);
+        padding: $gap-distance $zero;
+    }
+
+    &>.item {
+        border-bottom: 1px solid map-get($line-color, light);
+
+        &> .key {
+            display: inline-block;
+            font-weight: bold;
+            max-width: 150px;
+            width: 20%;
+        }
+
+        &> .value {
+            display: inline-block;
+            width: 78%;
+        }
+
+        &:last-child {
+            border-bottom: $zero;
+        }
+    }
+
+    &.striped {
+        & .item {
+            border: $zero;
+
+            &:nth-child(odd) {
+                background: map-get($bg-color, bg-gray);
+            }
+        }
+    }
+
+    &.solid-divider {
+        & .item {
+            border-bottom: 1px solid map-get($line-color, light);
+        }
+    }
+
+    &.dashed-divider {
+        & .item {
+            border-bottom: 1px dashed map-get($line-color, light);
+        }
+    }
+
+    .meta {
+        display: inline-block;
+        margin: $meta-margin-dist;
+    }
+}

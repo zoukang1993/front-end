@@ -1,0 +1,72 @@
+$suspension-bg: map-get($bg-color, bg-light);
+
+@mixin wec-suspension {
+    .suspension {
+        height: 30px;
+        position: relative;
+
+        &>.view {
+            @extend %ellipsis;
+            @extend %cursor-zoom-in;
+            height: inherit;
+            line-height: inherit;
+            max-width: 280px;
+            overflow: hidden;
+            padding: 0 .2rem;
+        }
+
+        &>.text {
+            @extend %cursor-zoom-out;
+            border-radius: 3px;
+            left: 10px;
+            max-height: 0;
+            overflow: hidden;
+            position: absolute;
+            top: $gap-distance * 1.5;
+            width: 280px;
+            z-index: 100;
+        }
+    }
+
+    &:hover {
+        &>.text {
+            @include vendor-prefix(transition, max-height 2s linear);
+            background: $gray;
+            max-height: 300px;
+            padding: $gap-distance;
+        }
+    }
+
+    .suspension-message {
+        background: $suspension-bg;
+        border: 1px solid map-get($line-color, light);
+        border-radius: 3px;
+        color: $color-red;
+        display: inline-block;
+        opacity: 0;
+        padding: $gap-distance;
+        position: absolute;
+        right: 3rem;
+        top: 8rem;
+        width: 200px;
+        z-index: 10000;
+
+        &.active {
+            @include vendor-prefix(animation, message-show 10s 1);
+
+            @keyframes message-show {
+                0% {
+                    @include opacity(0);
+                }
+
+                50% {
+                    @include opacity(1);
+                }
+
+                100% {
+                    @include opacity(0);
+                }
+            }
+        }
+    }
+}

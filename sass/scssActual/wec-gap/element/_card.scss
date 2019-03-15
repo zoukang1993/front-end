@@ -1,0 +1,19 @@
+.card {
+    background: map-get($bg-color, bg-light);
+    border: 1px solid map-get($line-color, light);
+    border-radius: 2px;
+    box-shadow: none;
+    font-size: .875rem;
+    margin-bottom: $gap-distance * 2;
+    width: 100%;
+
+    .primary-padding {
+        padding: $gap-distance * 2;
+    }
+
+    .card-title {
+        background: map-get($main-color, 'eee');
+        color: map-get($font-color, lighter-color);
+        padding: $gap-distance $zero;
+    }
+}

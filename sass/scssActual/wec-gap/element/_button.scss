@@ -1,0 +1,73 @@
+.btn {
+    background: $white;
+    border-color: map-get($main-color, dark-blue);
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: $border-width;
+    color: map-get($main-color, dark-blue);
+    cursor: pointer;
+    display: inline-block;
+    font-size: .75rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    min-width: 6.5rem;
+    outline: none;
+    padding: 0 .75rem;
+    text-align: center;
+
+    &.submit,
+    &.cancel {
+        &:hover {
+            background: map-get($main-color, dark-blue);
+            color: $white;
+        }
+    }
+
+    &.cancel {
+        margin-right: 1.5rem;
+    }
+
+    &.primary,
+    &.delete,
+    &.active,
+    &.frozen,
+    &.update,
+    &.more,
+    &.generate {
+        background: map-get($main-color, dark-blue);
+        color: $white;
+
+        &:hover {
+            background: $white;
+            border-color: map-get($main-color, dark-blue);
+            color: map-get($main-color, dark-blue);
+        }
+    }
+
+    &.expanded {
+        height: 2.5rem;
+        line-height: 2.5rem;
+        width: 100%;
+    }
+
+    &.hollow {
+        background: $white;
+        border: 1px solid map-get($main-color, dark-blue);
+        color: map-get($main-color, dark-blue);
+        max-height: 2.4375rem;
+        min-width: 4.25rem;
+    }
+
+    &:disabled,
+    &.disabled {
+        opacity: .7;
+    }
+}
+
+@media screen and (max-width: 40rem) {
+    .btn {
+        height: 1.8rem;
+        line-height: 1.8rem;
+        min-width: 3.5rem;
+    }
+}

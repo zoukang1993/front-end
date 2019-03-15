@@ -1,0 +1,13 @@
+.page-body {
+    &>.main {
+        @include vendor-prefix(transition, margin-left .6s ease-in-out);
+        color: map-get($font-color, gray-color);
+        margin-left: $logo-top-width;
+        min-height: 90vh;
+        width: auto;
+
+        &.active-pc {
+            margin-left: $zero;
+        }
+    }
+}

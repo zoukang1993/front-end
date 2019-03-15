@@ -1,0 +1,36 @@
+$h: (
+    'h1': 1.5rem,
+    'h2': 1rem,
+    'h3': .875rem,
+    'h4': .75rem,
+    'h5': .7rem
+) !default;
+
+$title: (
+    'xlarge': 1.5rem,
+    'large': 1.25rem,
+    'normal': 1rem,
+    'medium': .875rem,
+    'small': .75rem
+) !default;
+
+@each $key, $value in $h {
+    #{$key} {
+        font-size: $value;
+        margin-bottom: $gap-distance;
+    }
+}
+
+@each $key, $value in $title {
+    .font-#{$key} {
+        font-size: $value;
+    }
+
+    .title {
+        &.#{$key} {
+            font-size: $value;
+            font-weight: bold;
+            margin-bottom: $gap-distance;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+// sass-lint:disable no-url-protocols
+// sass-lint:disable no-url-domains
+
+.page-header-fixed {
+    @include clearfix;
+    background: map-get($bg-color, bg-light);
+
+    &>.sidebar {
+        width: $logo-top-width + 50px;
+
+        &>.toggle-open {
+            cursor: pointer;
+            float: left;
+            height: inherit;
+            text-align: center;
+            width: $gap-distance * 6;
+        }
+
+        &>.logo-top {
+            background: url('//crp-qiniu.ideapar.com/wecfin/Wecfin_logo_2x.png') no-repeat 50% 50%;
+            background-size: 148px 40px;
+            float: left;
+            height: $header-height;
+            text-align: middle;
+            vertical-align: middle;
+            width: $logo-top-width - 30px;
+        }
+    }
+
+    &>.main {
+        margin-left: 254px;
+        min-height: 0;
+        padding: 0 1rem;
+    }
+
+    .person-operate {
+        color: map-get($font-color, lighter-color);
+        cursor: pointer;
+        float: right;
+    }
+}

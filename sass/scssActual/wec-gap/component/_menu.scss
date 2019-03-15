@@ -1,0 +1,124 @@
+@mixin wec-menu {
+    .sub-menu {
+        @include clearfix;
+        min-width: 700px;
+
+        li {
+            background-color: transparent;
+            cursor: pointer;
+            float: left;
+            margin-left: 1rem;
+            position: relative;
+            text-align: center;
+
+            a {
+                background-color: transparent;
+                color: $mine-shaft;
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                width: 130px;
+            }
+
+            &.active {
+                &::before {
+                    background-color: map-get($main-color, dark-blue);
+                    border-radius: 2px;
+                }
+
+                a {
+                    background-color: transparent;
+                    color: $mine-shaft;
+                }
+            }
+
+            &::before {
+                background: $gray;
+                bottom: 0;
+                content: $empty;
+                display: block;
+                height: 6px;
+                left: 0;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+
+    .locale-menu-wrap {
+        position: relative;
+
+        .locale-menu {
+            @include vendor-prefix('transition', 'all .5s ease .2s');
+            list-style-type: none;
+            opacity: 0;
+            position: absolute;
+            right: 30px;
+
+            >.locale-item {
+                border-left: 1px solid map-get($line-color, tiny);
+                cursor: pointer;
+                display: inline-block;
+                padding: 0 .5rem;
+            }
+        }
+
+        &:hover {
+            .locale-menu {
+                opacity: 1;
+            }
+        }
+
+        >.create-btn {
+            position: absolute;
+            right: 0;
+        }
+
+        >.more-menu {
+            position: absolute;
+            right: 0;
+
+            .more-wrap {
+                display: none;
+                list-style: none;
+                overflow: hidden;
+                padding: 5px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                >li {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    .locale-item {
+        // &.active {
+        //     .locale-title {
+        //         color: $menu-active;
+        //     }
+        // }
+
+        &.hide {
+            display: none;
+        }
+
+        &:last-child {
+            border-right: 1px solid map-get($line-color, tiny);
+        }
+
+        .zdrop-wrap {
+            display: none;
+            list-style: none;
+            overflow: hidden;
+            padding: 5px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            >li {
+                padding: 5px;
+            }
+        }
+    }
+}

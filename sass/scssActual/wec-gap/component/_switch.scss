@@ -1,0 +1,91 @@
+// sass-lint:disable force-pseudo-nesting
+
+$circle-margin: .4rem !default;
+$get-data-on-attr: attr(data-on);
+$get-data-off-attr: attr(data-off);
+
+@mixin wec-switch {
+    .switch {
+        cursor: pointer;
+        margin: $zero;
+        position: relative;
+        width: 90px;
+        // -webkit-user-select:none;
+        // -moz-user-select:none;
+        // -ms-user-select: none;
+    }
+
+    .switch-checkbox {
+        display: none;
+    }
+
+    .switch-label {
+        border: 2px solid map-get($line-color, dark);
+        border-radius: 20px;
+        display: block;
+        overflow: hidden;
+    }
+
+    .switch-inner {
+        @include vendor-prefix(transition, margin .3s ease-in 0s);
+        display: block;
+        margin-left: -100%;
+        width: 200%;
+
+        &::before,
+        &::after {
+            box-sizing: border-box;
+            color: $white;
+            display: block;
+            float: right;
+            font-size: 1rem;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+            padding: $zero;
+            width: 50%;
+        }
+
+        &::after {
+            background-color: map-get($bg-color, primary-bg);
+            color: $white;
+            content: $get-data-on-attr;
+            padding-left: 10px;
+        }
+
+        &::before {
+            background-color: $gray;
+            color: map-get($font-color, lighter-color);
+            content: $get-data-off-attr;
+            padding-right: 10px;
+            text-align: right;
+        }
+    }
+
+    .switch-switch {
+        @include vendor-prefix(transition, all .3s ease-in 0s);
+        background: $white;
+        border: 2px solid map-get($line-color, dark);
+        border-radius: 20px;
+        bottom: $zero;
+        display: block;
+        height: 22px;
+        margin: $circle-margin;
+        position: absolute;
+        right: 56px;
+        top: $zero;
+        width: 22px;
+    }
+
+    .switch-checkbox:checked {
+        & + .switch-label {
+            &>.switch-inner {
+                margin-left: $zero;
+            }
+
+            &>.switch-switch {
+                right: $zero;
+            }
+        }
+    }
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        background: url(./image/bg.png) no-repeat;
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+
+    .logo {
+        display: block;
+        width: 200px;
+        height: 55px;
+        background: url(./image/logo.png) no-repeat;
+        margin: 20px auto;
+    }
+
+    ul {
+        list-style: none;
+        font-size: 22px;
+        color: #8c949c;
+        font-weight: bold;
+    }
+
+    ul li {
+        position: relative;
+        padding-left: 10px;
+    }
+
+    ul li div {
+        height: 98%;
+        width: 1px;
+        border-left: 1px dotted #ccc;
+        position: absolute;
+        left: 14px;
+        top: 18px;
+    }
+
+    ul ul {
+        display: none;
+    }
+
+    ul li span {
+        display: block;
+        line-height: 32px;
+        padding-left: 15px;
+        background: url(./image/icon.png) no-repeat left 500px;
+    }
+
+    ul li span.add {
+        width: 400px;
+        height: 40px;
+        background-color:rgb(252, 84, 112);
+    }
+
+    ul li span.line {
+        width: 400px;
+        height: 40px;
+        background-color:pink;
+    }
+
+    .tree {
+        margin-left: 300px;
+    }
+    </style>
+    <script>
+    var arr = [
+{
+    title: "第一级菜单",
+    child: [
+    {
+        title: "第二级菜单"
+    },
+    {
+        title: "第二级菜单",
+        child: [
+        {
+            title: "第三级菜单"
+        },
+        {
+            title: "第三级菜单",
+            child: [
+            {
+                title: "第四级菜单"
+            },
+            {
+                title: "第四级菜单"
+            },
+            {
+                title: "第四级菜单"
+            }]
+        },
+        {
+            title: "第三级菜单"
+        }]
+    },
+    {
+        title: "第二级菜单",
+        child: [
+        {
+            title: "第三级菜单"
+        },
+        {
+            title: "第三级菜单"
+        }]
+    }]
+},
+{
+    title: "第一级菜单",
+    child: [
+    {
+        title: "第二级菜单"
+    },
+    {
+        title: "第二级菜单",
+        child: [
+        {
+            title: "第三级菜单"
+        },
+        {
+            title: "第三级菜单",
+            child: [
+            {
+                title: "第四级菜单"
+            },
+            {
+                title: "第四级菜单"
+            },
+            {
+                title: "第四级菜单"
+            }]
+        },
+        {
+            title: "第三级菜单"
+        }]
+    },
+    {
+        title: "第二级菜单",
+        child: [
+        {
+            title: "第三级菜单"
+        },
+        {
+            title: "第三级菜单"
+        }]
+    }]
+},
+{
+    title: "第一级菜单",
+    child: [
+    {
+        title: "第二级菜单"
+    },
+    {
+        title: "第二级菜单",
+
+    },
+    {
+        title: "第二级菜单",
+        child: [
+        {
+            title: "第三级菜单"
+        },
+        {
+            title: "第三级菜单"
+        }]
+    }]
+
+}];
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <a href="http://www.miaov.com" class="logo"></a>
+        <div class="tree">
+            <!-- <ul class="oUl">
+                <li>
+                    <span class="add">第一级菜单</span>
+                    <ul style="display: block;">
+                        <li><span>第二级菜单</span></li>
+                        <li><span>第二级菜单</span></li>
+                        <li>
+                            <span class="line">第二级菜单</span>
+                            <ul style="display: block;">
+                                <li><span>第三级菜单</span></li>
+                                <li><span>第三级菜单</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+    <script>
+        //1.拼接生成第一级菜单
+
+        //获取父级元素tree
+        var tree = document.querySelector('.tree')
+        //封装函数
+        function render(arr){
+            // 拼接ul
+            var html = '<ul>'
+            //设置循环，生成li
+            html += arr.map(function (item){
+                //设置class样式为空
+                var classNames = '';
+                //判断  如果有子级就添加样式
+                // if(item.child){
+                //     classNames = "add"
+                // }else{
+                //     //否则样式为空
+                //     classNames = ''
+                // }
+                //三目运算符
+                classNames = item.child  ? 'add' : '' ;
+                // console.log(classNames)
+                //将生成的变量存为 h 
+                var h = '<li><span class="'+classNames+'">'+item.title+'</span>';
+                    //判断如果有子级结构，继续生成
+                    if(item.child){
+                        //调用自身函数  传参生成子级结构
+                        h += (render(item.child))
+                    }
+                    //拼合li
+                    h += '</li>'
+                    //将h返回出去
+                    return h;
+
+            }).join('');
+            //拼合ul
+            html += '</ul>'
+            //将 html 返回出去
+            return html;
+
+        }
+        //调用函数传参  赋值给tree
+        tree.innerHTML = render(arr)
+
+         // 因为第一个ul是展开的，先找到
+         var firstUl = tree.children[0];
+
+         //判断元素上是否有点击属性，不为null表示绑定过，为null表示需要绑定
+         if(!firstUl.onclick){
+             //如果没有点击事件就走点击函数添加
+            firstUl.onclick = function(){
+
+            }
+         }
+         // 添加交互效果
+        //封装函数
+       function addevent(blockUl){
+
+            //找到展开的ul下面的所有li
+            var firstLis = blockUl.children;
+
+            if(firstLis[0].firstElementChild.onclick){
+                return;
+            }
+
+            //1.找到所有的span,绑定点击处理
+            // var spans = tree.querySelectorAll('span')
+            //循环span
+            for(var i = 0; i < firstLis.length; i++){
+                // console.log('有绑定了');
+                firstLis[i].firstElementChild.onclick = function(){
+
+                    //2.点击时 找下一级
+                    var next = this.nextElementSibling;
+                    //3.要求：同一级只能展开一个
+                    //思路： 通过父级的父级找到下面所有ul 
+                    //获取span的父级的父级的ul
+                    var ppUl = this.parentNode.parentNode;
+
+                    //寻找next下面的所有ul,收起上一个ul时将下面所有ul都隐藏，需要时重新打开
+                    //寻找ppUl下面的所有ul,用以处理同一级只能打开一个的问题
+                    var uls = ppUl.querySelectorAll('ul');
+                    //设置循环 遍历uls
+                    for( var i = 0; i < uls.length; i++){
+                        //判断 派出当前被点击的的ul，设置其他ul样式
+                        if(uls[i] !== next){
+                        //设置uls的样式为隐藏  calss 为+
+                            uls[i].style.display = 'none';
+                            uls[i].previousElementSibling.className = 'add'
+                        }
+
+                    }
+
+                    //如果有下一级
+                    if(next){
+                        console.log(this.className);
+                        //判断 class 是不是add
+                        if(this.className === 'add'){
+                            //如果是  设置为显示，class为-
+                            next.style.display = 'block';
+                            this.className = 'line';
+                            //如果有下一级结构，调用函数 传参下一级
+                            addevent(next)
+                        }else{
+                            //如果不是，设置为隐藏，设置class 为add
+                            next.style.display = 'none';
+                            this.className = 'add';
+                        }
+                    }
+                }
+            }
+       }
+       addevent(firstUl)
+
+        // 4.只要是展开的ul,下面的li的span就要点击处理
+
+    </script>
+</body>
+
+</html>

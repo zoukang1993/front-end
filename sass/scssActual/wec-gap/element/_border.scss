@@ -1,0 +1,97 @@
+@each $key, $value in $line-color {
+    .b-s-#{$key} {
+        border: 1px solid $value;
+        box-sizing: border-box;
+    }
+
+    .b-t-s-#{$key} {
+        border-top: 1px solid $value;
+    }
+
+    .b-r-s-#{$key} {
+        border-right: 1px solid $value;
+    }
+
+    .b-b-s-#{$key} {
+        border-bottom: 1px solid $value;
+    }
+
+    .b-l-s-#{$key} {
+        border-left: 1px solid $value;
+    }
+}
+
+@each $key, $value in $line-color {
+    .b-d-#{$key} {
+        border: 1px dashed $value;
+    }
+
+    .b-t-d-#{$key} {
+        border-top: 1px dashed $value;
+    }
+
+    .b-r-d-#{$key} {
+        border-right: 1px dashed $value;
+    }
+
+    .b-b-d-#{$key} {
+        border-bottom: 1px dashed $value;
+    }
+
+    .b-l-d-#{$key} {
+        border-left: 1px dashed $value;
+    }
+}
+
+@each $key, $value in $line-color {
+    .b-dot-#{$key} {
+        border: 1px dotted $value;
+    }
+
+    .b-t-dot-#{$key} {
+        border-top: 1px dotted $value;
+    }
+
+    .b-r-dot-#{$key} {
+        border-right: 1px dotted $value;
+    }
+
+    .b-b-dot-#{$key} {
+        border-bottom: 1px dotted $value;
+    }
+
+    .b-l-dot-#{$key} {
+        border-left: 1px dotted $value;
+    }
+}
+
+@for $i from 2 through 12 {
+    .b-radius-#{$i} {
+        border-radius: $i + px;
+    }
+}
+
+.no-border {
+    border: $zero;
+}
+
+.n-b-t {
+    border-top: $zero;
+}
+
+.n-b-r {
+    border-right: $zero;
+}
+
+.n-b-b {
+    border-bottom: $zero;
+}
+
+.n-b-l {
+    border-left: $zero;
+}
+
+.n-b-radius {
+    border-radius: $zero;
+}
+

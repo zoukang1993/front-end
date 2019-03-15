@@ -1,0 +1,10 @@
+// mobx
+// 任何源自应用的东西都应该自动的获得
+
+@Observable state  可观察的状态
+
+@computed get func();  计算值
+
+@observer
+class
+

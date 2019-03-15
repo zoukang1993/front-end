@@ -1,0 +1,8 @@
+// global install
+npm install -g webpack
+// install webpack to project
+npm install --save-dev webpack
+
+// ready webpack
+npm init
+

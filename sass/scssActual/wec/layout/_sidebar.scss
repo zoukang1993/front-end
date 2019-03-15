@@ -1,0 +1,26 @@
+// sass-lint:disable no-vendor-prefixes
+
+.page-body {
+    &>.sidebar {
+        @include vendor-prefix(transition, width .6s ease-in-out);
+        background: map-get($bg-color, bg-light);
+        height: 100%;
+        overflow: hidden;
+        position: fixed;
+        width: 204px;
+        z-index: 999;
+
+        &>.hide-sidebar-scroll {
+            box-sizing: content-box;
+            height: 100%;
+            overflow: auto;
+            padding-right: 16px;
+            position: absolute;
+            width: 214px;
+        }
+
+        &.active-pc {
+            width: 0;
+        }
+    }
+}

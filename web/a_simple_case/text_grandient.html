@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字的流光渐变</title>
+	<style type="text/css">
+		.mask h2 {
+			width: 500px;
+			height: 200px;
+			background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+			color: transparent;
+
+			-webkit-text-fill-color: transparent;
+			-webkit-background-clip: text;
+			-webkit-background-size: 200% 100%;
+			background-size: 200% 100%;
+
+			animation: masked-animation 4s infinite linear;
+		}
+
+		@keyframes masked-animation {
+			0% {
+				background-position: 0 0;
+			}
+			100% {
+				background-position: -100% 0;
+			}
+		}
+
+		@-webkit-keyframes masked-animation {
+			0% {
+				background-position: 0 0;
+			}
+			100% {
+				background-position: -100% 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="mask">
+		<h2>
+			This is a text gradient animation test show !
+		</h2>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+// sass-lint:disable no-url-protocols
+// sass-lint:disable no-url-domains
+
+@media only screen and (max-width: 40rem) {
+    .responsive {
+        &>.sidebar {
+            @include vendor-prefix(transition, left .6s ease-in-out);
+            display: flex;
+            left: -210px;
+            top: 60px;
+            z-index: 2222;
+
+            &.active {
+                left: 0;
+            }
+        }
+
+        &>.main {
+            margin-left: $zero;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+// sass-lint:disable  no-vendor-prefixes
+// sass-lint:disable no-url-protocols
+// sass-lint:disable no-url-domains
+
+$header-height: 60px;
+$logo-top-width: 204px;
+
+.page {
+    background-color: map-get($bg-color, main-bg);
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+.page-header-fixed {
+    @include clearfix;
+    -webkit-box-shadow: 0 2px 4px 0 map-get($box-shadow-color, primary-shadow-color);
+    background: map-get($bg-color, bg-light);
+    box-shadow: 0 2px 1px map-get($box-shadow-color, primary-shadow-color);
+    height: $header-height;
+    line-height: $header-height;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.page-header {
+    height: $header-height;
+    line-height: $header-height;
+}
+
+.page-body {
+    min-height: 90%;
+}
+
+.page-footer {
+    background-color: map-get($bg-color, main-bg);
+    padding: $gap-distance $gap-distance * 2;
+    text-align: center;
+}

@@ -1,0 +1,19 @@
+@media screen and (min-width: 640px) {
+  .page-body .sidebar {
+    display: block; }
+  .page-body .main {
+    margin-left: 20px; }
+  .page-body .board .board-main {
+    margin-right: 12.5rem;
+    padding: 1rem; }
+  .page-body .board .board-side {
+    font-size: 14px;
+    right: 1.25rem;
+    top: 1rem;
+    width: 11.25rem; }
+
+  .page-footer {
+    margin-left: 22px;
+    text-align: center; } }
+
+/*# sourceMappingURL=:.map */

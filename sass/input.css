@@ -1,0 +1,8 @@
+:root {
+  --bgColor:deeppink; }
+
+.main {
+  height: 100px;
+  background: var(--bgColor); }
+
+/*# sourceMappingURL=input.css.map */

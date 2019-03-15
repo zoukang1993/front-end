@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>tab切换</title>
+<style type="text/css">
+	.route-asm {
+		cursor: pointer;
+		width: 500px;
+		height: 400px;
+		position: relative;
+	}
+
+	.app-frame {
+		width: 100%;
+
+	}
+
+	.app-name {
+		background: #ccc;
+		display: inline-block;
+		line-height: inherit;
+		padding-left: 5px;
+		padding-top: 15px;
+		white-space: nowrap;
+		width: 120px;
+		word-wrap: normal;
+	}
+
+	.app-item {
+		display: inline-block;
+		left: 121px;
+		width: 349px;
+		/*height: 300px;*/
+		padding: 0 15px;
+		position: absolute;
+		visibility: hidden;
+		background: #fff700;
+		z-index: 99;
+	}
+
+</style>
+</head>
+<body>
+	<div class="route-asm">
+		<div class="app-frame">
+			<div class="app-name">app-name1</div>
+			<div class="app-item">
+				app-item1app-item1app-item1app-item1app-item1app-item1app-item1app-item1app-item1
+				app-item1app-item1app-item1app-item1app-item1app-item1app-item1app-item1app-item1
+			</div>
+		</div>
+
+		<div class="app-frame">
+			<div class="app-name">app-name2</div>
+			<div class="app-item">app-item2</div>
+		</div>
+
+		<div class="app-frame">
+			<div class="app-name">app-name3</div>
+			<div class="app-item">app-item3</div>
+		</div>
+
+		<div class="app-frame">
+			<div class="app-name">app-name4</div>
+			<div class="app-item">app-item4</div>
+			</div>
+
+	</div>
+
+<script type="text/javascript">
+	//定义数组并获取数组内各个的节点
+	var appFrame = document.querySelectorAll('.app-frame');
+	var appName = document.querySelectorAll('.app-frame .app-name');
+	var appItem = document.querySelectorAll(".app-item");
+	appName[0].style.background = '#fff700';
+	appItem[0].style.visibility ='visibles ';
+
+	// console.log(appName);
+
+	for(var i = 0; i < appFrame.length;i++) {
+
+		appFrame[i].onmouseover = function() {
+			console.log(this);
+
+			this.firstElementChild.style.background = "#fff700";
+
+			for(var j = 0; j < appFrame.length; j++) {
+
+				// appName[j].style.background = "#fff700";
+
+				this.style.backgroundColor = "#fff700";
+			
+				appItem[j].style.visibility = "hidden";
+			
+				if(this == appFrame[j]) {
+					
+					appItem[j].style.visibility = "visible";
+				}
+			}
+		}
+
+		appFrame[i].onmouseleave = function() {
+			this.firstElementChild.style.background = "#ccc";
+			this.lastElementChild.style.visibility = "hidden";
+		}
+	}
+</script>
+</body>
+</html>

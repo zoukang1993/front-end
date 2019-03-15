@@ -1,0 +1,62 @@
+$icon-color: ();
+$border-color: ();
+
+$zero: 0;
+$none: none;
+$center: 0 auto;
+$white: #fff;
+$empty: '';
+$color-red: #f00;
+$black: #000;
+$gray: #ccc;
+$mine-shaft: #333;
+$dark-blue: #1779ba;
+$light-blue: #4594cb;
+$tiny-blue: #a2c9e3;
+
+//font
+// $primary-color: #222;
+// $grayer-color: #666;
+// $lighter-color: #999;
+// $gray-color: #4a4a4a;
+// $next-color: #f9fafc;
+// $alternative-f-color: #979797;
+
+//bg
+$bg-darken: #004e8a;
+$bg-gray: #e9e9e9;
+$bg-light: #fcfcfc;
+$bg-title: #e5e9f2;
+$medium-gray: #ddd;
+
+$primary-shadow: #f0f1f2;
+
+@each $key, $value in $main-color {
+    .#{$key}-color {
+        color: $value;
+    }
+}
+
+@each $key, $value in $main-color {
+    .#{$key}-bg {
+        background: $value;
+    }
+}
+
+@each $key, $value in $font-color {
+    .#{$key} {
+        color: $value;
+    }
+}
+
+@each $key, $value in $bg-color {
+    .#{$key} {
+        background-color: $value;
+    }
+}
+
+@each $key, $value in $line-color {
+    .#{$key} {
+        color: $value;
+    }
+}

@@ -1,0 +1,73 @@
+$status-background: (
+    draft: #faf3e0, //草稿
+    unresolved: #faf3e0,
+    reviewing: #f1dede, //待审核
+    revision: #e8e3db, //待修正
+    bargaining: #d6edff, //待启用
+    executed: #d9eedf, //进行中
+    prepare: #d9eedf,
+    open: #d9eedf,
+    resolved: #a5deff, //已完成
+    confirmed: #a5deff,
+    paid: #a5deff,
+    canceled: #d9d9d9, //已取消
+    cntr: #dee9ef  //合同
+);
+
+$status-color: (
+    draft: #b49a67,
+    unresolved: #b49a67,
+    reviewing: #80727b,
+    revision: #716e73,
+    bargaining: #547aa5,
+    executed: #3f817c,
+    prepare: #3f817c,
+    open: #3f817c,
+    resolved: #4a7875,
+    confirmed: #4a7875,
+    paid: #4a7875,
+    canceled: #74808d,
+    cntr: #9baec3
+);
+
+$status-icon: (
+    draft: '\e6e6',
+    unresolved: '\e6e6',
+    reviewing: '\e6da',
+    revision: '\e6e8',
+    bargaining: '\e6e7',
+    executed: '\e6e4',
+    open: '\e6e7',
+    prepare: '\e6e4',
+    resolved: '\e6c7',
+    confirmed: '\e6c7',
+    paid: '\e6c7',
+    canceled: '\e6e9'
+);
+
+$status-radius: 2px;
+
+.status {
+    border-radius: $status-radius;
+    display: inline-block;
+    padding: 0 6px;
+
+    @each $key, $value in $status-background {
+        &.#{$key} {
+            background: $value;
+            color: map-get($status-color, $key);
+        }
+    }
+
+    @each $key, $value in $status-icon {
+        .icon-#{$key} {
+            &::before {
+                content: $value;
+            }
+        }
+    }
+
+    .icon {
+        font-size: 14px;
+    }
+}

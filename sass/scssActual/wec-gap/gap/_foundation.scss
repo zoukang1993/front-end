@@ -1,0 +1,89 @@
+// sass-lint:disable no-important
+
+.inline {
+    display: inline-block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+// .center {
+//     display: -moz-box;
+//     -moz-box-pack: center;
+//     -moz-box-align: center;
+
+//     display: -webkit-box;
+//     -webkit-box-pack: center;
+//     -webkit-box-align: center;
+// }
+
+.break-word {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.transparent {
+    background: transparent;
+    background-color: transparent;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.ellipsis {
+    @extend %ellipsis;
+}
+
+.all-unset {
+    all: unset;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: initial;
+}
+
+@media screen and(max-width: 40rem) {
+    .mt-hide {
+        display: none !important;
+    }
+
+    .mt-show {
+        display: block !important;
+    }
+}
+
+@media screen and(min-width: 40rem) {
+    .pc-show {
+        display: block !important;
+    }
+
+    .pc-hide {
+        display: none !important;
+    }
+}

@@ -1,0 +1,40 @@
+$choose-area-beauty-dist: 0 14px 0 4px;
+
+%select-hovered {
+    background-clip: content-box;
+    background-color: map-get($main-color, dark-blue);
+    padding: 2px;
+}
+
+.choose-area {
+    &> .choose-area-name {
+        font-size: 1rem;
+        vertical-align: middle;
+    }
+
+    &>.choose-area-beauty {
+        border: 1px solid map-get($main-color, light-blue);
+        border-radius: 50%;
+        box-sizing: border-box;
+        display: inline-block;
+        height: 18px;
+        margin: $choose-area-beauty-dist;
+        vertical-align: middle;
+        width: 18px;
+
+        &:hover {
+            @extend %select-hovered;
+            background-color: map-get($main-color, tiny-blue);
+            box-shadow: 0 0 7px map-get($box-shadow-color, primary-shadow-color);
+        }
+    }
+
+    input {
+        &[type='checkbox'],
+        &[type='radio'] {
+            &:checked + .choose-area-beauty {
+                @extend %select-hovered;
+            }
+        }
+    }
+}

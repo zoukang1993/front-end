@@ -1,0 +1,63 @@
+$upload-file-size: 5rem !default;
+$btn-upload-symbol: '+';
+$hover-delete-bg: rgba(0, 0, 0, .4);
+
+@mixin wec-upload-file {
+    %upload-file-common {
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        height: $upload-file-size;
+        outline: none;
+        text-align: center;
+        width: $upload-file-size;
+    }
+
+    .btn-upload {
+        @extend %upload-file-common;
+        background: map-get($bg-color, bg-light);
+        border: 1px dashed map-get($line-color, light);
+        color: map-get($main-color, light-blue);
+        font-size: 2.2rem;
+        line-height: $upload-file-size;
+        vertical-align: top;
+
+        &::after {
+            content: $btn-upload-symbol;
+        }
+    }
+
+    .file-item {
+        @extend %upload-file-common;
+        margin-right: $gap-distance / 2;
+        position: relative;
+
+        img {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+        }
+
+        .icon-preview {
+            font-size:  3rem;
+        }
+
+        .btn-operate {
+            background: $hover-delete-bg;
+            color: $white;
+            display: none;
+            height: $upload-file-size - 3.125rem;
+            line-height: $upload-file-size - 3.125rem;
+            position: absolute;
+            top: 3.125rem;
+            width: 100%;
+            z-index: 1;
+        }
+
+        &:hover {
+            .btn-operate {
+                display: block;
+            }
+        }
+    }
+}

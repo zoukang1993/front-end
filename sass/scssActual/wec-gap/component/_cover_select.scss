@@ -1,0 +1,31 @@
+$select-arrow-symbol: '\25bc';
+
+@mixin wec-cover-select {
+    .select {
+        display: inline-block;
+        margin-bottom: 1rem;
+        position: relative;
+        width: 100%;
+
+        &>.select-inner {
+            cursor: pointer;
+            margin-bottom: $zero;
+        }
+
+        &::after {
+            background: map-get($main-color, tiny-blue);
+            bottom: $zero;
+            color: $white;
+            content: $select-arrow-symbol;
+            line-height: inherit;
+            padding-top: $gap-distance;
+            pointer-events: none;
+            position: absolute;
+            right: $zero;
+            text-align: center;
+            top: $zero;
+            vertical-align: middle;
+            width: 20px;
+        }
+    }
+}
