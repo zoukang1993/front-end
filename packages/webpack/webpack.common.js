@@ -17,6 +17,11 @@ module.exports = {
                 test: /\.css$/,
                 use: 'css-loader'
             },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: '/node_modules'
+            }
         ]
     },
     plugins: [
@@ -38,6 +43,9 @@ module.exports = {
         alias: {
             '@': path.resolve(__dirname, 'src/'),
         },
-        extensions: ['.js', '.jsx', '.json'],
-    }
+        extensions: ['.js', '.jsx', '.tsx', '.ts', '.json'],
+    },
+    performance: {
+        hints: process.env.NODE_ENV === 'production' ? "warning" : false
+    },
 };

@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import utils from '@/utils/utils.js';
+import { a } from './ts/index';
 
 function component() {
     var element = document.createElement('div');
@@ -30,8 +31,8 @@ const webpackInit = () => {
 };
 
 const test = () => {
-    console.log("start", utils);
-
+    console.log('utils', utils);
+    console.log("start", a);
 };
 
 
