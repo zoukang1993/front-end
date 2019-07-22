@@ -1,8 +1,9 @@
 const webpack = require('webpack');
-const ps = require('path');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
     mode: 'development',
@@ -16,18 +17,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: 'css-loader'
-            }
+            },
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({}),
-        // new CleanWebpackPlugin(['dist'])
+        new CleanWebpackPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true
         }),
+        new WebpackBar({}),
     ],
     devServer: {
         contentBase: './dist',
@@ -35,7 +37,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            utils: "./src/utils/",
-        }
+            '@': path.resolve(__dirname, 'src/'),
+        },
+        extensions: ['.js', '.jsx', '.json'],
     }
 };

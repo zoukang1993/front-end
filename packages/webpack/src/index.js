@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { utils } from './utils/utils';
+import utils from '@/utils/utils.js';
 
 function component() {
     var element = document.createElement('div');
@@ -7,19 +7,17 @@ function component() {
     // Lodash, now imported by this script
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
+    return element;
+}
+
+const webpackInit = () => {
     if (module.hot) {
         module.hot.accept('./print.js', function() {
             console.log('Accepting the updated intMe module!');
             printMe();
-        })
+        });
     }
-    return element;
-}
 
-
-console.log("start", utils);
-
-(function() {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/service-worker.js').then(registration => {
@@ -29,6 +27,17 @@ console.log("start", utils);
             });
         });
     }
-})();
+};
+
+const test = () => {
+    console.log("start", utils);
+
+};
+
+
+
+
+webpackInit();
+test();
 
 document.body.appendChild(component());

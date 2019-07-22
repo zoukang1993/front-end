@@ -1,3 +1,5 @@
-export let utils = {
+const utils = {
     name: '',
 };
+
+export default utils;
