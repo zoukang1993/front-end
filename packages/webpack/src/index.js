@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import utils from '@/utils/utils.js';
-import { a } from './ts/index';
+import utils from '@/utils/utils';
+import TS from './tsIndex';
 
 function component() {
     var element = document.createElement('div');
@@ -31,9 +31,14 @@ const webpackInit = () => {
 };
 
 const test = () => {
-    console.log('utils', utils);
-    console.log("start", a);
+    
 };
+
+(function() {
+    let ts = new TS(utils);
+    ts.getName();
+    ts.init();
+})();
 
 
 

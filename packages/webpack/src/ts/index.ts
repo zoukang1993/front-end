@@ -1,1 +1,15 @@
-export let a:number = 1;
+import NameSpaces from './namespace';
+
+export default class AllTS {
+    constructor() {
+
+    }
+
+    exeNameSpaces() {
+        
+    }
+
+    exexute() {
+
+    }
+}
