@@ -1,5 +1,6 @@
 const utils = {
-    name: '',
+    name: 'zk',
+    type: 'web',
 };
 
 export default utils;
